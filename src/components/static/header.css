@@ -1,0 +1,35 @@
+/*header styles*/
+
+.paper{
+    margin:25px;
+    padding: 0px 32px;
+    border-radius: 8px;
+    width: -webkit-fit-content;
+    width: -moz-fit-content;
+    display: flex;
+    background-color: #e6f50f1c !important;
+}
+.menu{
+    display: flex;
+    justify-content: center;
+}
+.nav-item{
+    text-transform: uppercase;
+    margin: 9px 10px;
+    border: 1.5px dotted #491bb3c7;
+    border-radius: 15px;
+    padding: 9px;
+}
+.menuItem{    
+    text-decoration: none;
+    font-family: 'Mali', cursive;
+    color: #384e08;
+}
+
+
+
+
+
+
+
+@import url('https://fonts.googleapis.com/css?family=Mali');
