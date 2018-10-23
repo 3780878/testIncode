@@ -1,15 +1,36 @@
+
+
+import axios from 'axios';
 export const LOGIN_REQUEST = 'LOGIN_REQUEST'
 export const LOGIN_SUCCESS = 'LOGIN_SUCCESS'
 export const LOGIN_FAIL = 'LOGIN_FAIL'
 
-export function handleLogin(callback) {
+export function handleLogin() {
+
     return (dispatch) => {
         dispatch({
             type: LOGIN_REQUEST
         })
-        // User.login(r => {
-        //     if (r.session) {
-        //       const username = r.session.user.id
+
+            axios.get('/localhost:8080/api/auth/register')
+            .then((response) => {
+                dispatch({
+                    type: LOGIN_SUCCESS,
+                    payload: response.token
+                })
+
+            }) 
+            .catch((error) => {
+                dispatch({
+                    type: LOGIN_FAIL,
+                    payload: error('OOps..Something going wrong')
+                })
+            }) 
+
+    }
+}
+
+
 
 
         // axios request to server to get token
@@ -34,25 +55,4 @@ export function handleLogin(callback) {
                     payload: 'Ooops...'
                 })
             }) 
-        */        
-    }
-}
-
-/*fetch('http://localhost:8080/api/auth/register', {
-    method: 'POST',
-    headers: {'Content-Type': 'application/json'},
-    body: JSON.stringify(data)
-})
-    .then((res)=>{
-        return res.json();
-    })
-    .then((d)=>{
-        if(d.success){
-            dispatch({type:'SHOW_MESSAGE_SUCCESS'});
-
-            setTimeout(()=>{
-                dispatch({type:''});
-            },2000)
-        }
-              
-});*/
+        */      

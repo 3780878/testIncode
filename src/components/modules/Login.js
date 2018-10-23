@@ -1,12 +1,27 @@
-import React from "react";
+import React, { Component } from "react";
 import TextField from '@material-ui/core/TextField';
 import './loginstyles.css';
 import Button from '@material-ui/core/Button';
 import { connect } from "react-redux";
 import { handleLogin } from '../../actions/UserAction';
- 
-const Login =()=> {
- 
+
+
+class Login extends Component {
+state = {
+  name: '',
+  password: ''
+}
+onChange = event => {
+  console.log(event.target.value);
+  this.setState({ name: event.target.value })
+}
+
+onSubmit = event => {
+  event.handleLogin()
+}
+
+
+render(){
   return (
     <div>
       <form  onSubmit={this.onSubmit} noValidate autoComplete="off">
@@ -14,9 +29,8 @@ const Login =()=> {
         id="outlined-name"
         label="Name"        
         value={this.state.name}
-        onChange={this.handleChange('name')}
+        onChange={this.onChange}
         margin="normal"
-        margin-right="xs"
         variant="outlined"/>    
         <TextField className="textfields"
         id="outlined-password-input"
@@ -32,7 +46,7 @@ const Login =()=> {
     </div>
       )
     }
-    
+  }
 const mapStateToProps = state => ({
   user: state.user,
   isValid: state.isValid,
@@ -40,8 +54,8 @@ const mapStateToProps = state => ({
 })
 
 
-const mapDispatchToProps = dispatch => ({
-  actions: handleLogin(dispatch)
+const mapDispatchToProps =  ({
+  handleLogin
 })
 
 
@@ -49,3 +63,4 @@ export default connect(
   mapStateToProps,
   mapDispatchToProps
 )(Login)
+

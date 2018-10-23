@@ -36,6 +36,7 @@ export function appReducer(state = initialState, action)
             user:{...state.user, ...action.data},
             loggedIn:true, loaded: true, loading: true         
         }
+        default: return state;
     }
-    return state;
+    
 }
