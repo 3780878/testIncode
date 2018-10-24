@@ -13,7 +13,7 @@ export const handleLogin = (authData) => {
             type: LOGIN_REQUEST
         });
 
-        axios.post('/auth/register', authData)
+        axios.post('/auth/login', authData)
             .then((response) => {                
                 dispatch({
                     type: LOGIN_SUCCESS,
@@ -22,7 +22,6 @@ export const handleLogin = (authData) => {
                 getUser()(dispatch);
             }) 
             .catch((error) => {
-               debugger;
                 dispatch({
                     type: LOGIN_FAIL,
                     payload: 'OOps..Something going wrong'
