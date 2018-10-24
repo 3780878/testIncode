@@ -1,34 +1,26 @@
-export const FORM_LOGGEDIN = 'FORM_LOGGEDIN'
-export const FORM_LOADED = 'FORM_LOADED'
-export const FORM_LOADING = 'FORM_LOADING'
+import axios from '../axios';
+export const GET_USER_REQUEST = 'GET_USER_REQUEST'
+export const GET_USER_SUCCESS = 'GET_USER_SUCCESS'
+export const GET_USER_FAIL = 'GET_USER_FAIL'
 
-export function FORM_REQUEST(callback) {
-    return function(dispatch) {
+export const getUser = () => {
+    return (dispatch) => {
       dispatch({
-        type: FORM_LOGGEDIN,
-      })
-      fetch('http://localhost:/???', {
-    method: 'POST',
-    headers: {'Content-Type': 'application/json'},
-    body: JSON.stringify()
-})
-    .then((res)=>{
-        return res.json();
-    })
-    .then((d)=>{
-        if(d.success){
+        type: GET_USER_REQUEST
+      });
+
+      axios.get('/auth/me')
+        .then((response)=>{            
             dispatch({
-                type: FORM_LOADED,
-                payload: '',
-              })
-              callback()
-            } else {
-              dispatch({
-                type: FORM_LOADING,
-                error: true,
-                payload: 'Your preloader coming soon',
-            })
-        }
-        }
-    )}       
-};
+                type: GET_USER_SUCCESS,
+                payload: response.data.user,
+             })
+         })
+        .catch(()=> {
+             dispatch({
+                type: GET_USER_FAIL,
+                payload: 'Oooops...',
+             })
+        }) 
+    }
+}

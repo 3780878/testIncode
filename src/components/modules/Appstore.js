@@ -1,10 +1,10 @@
-import React, { Component } from "react";
+/*import React, { Component } from "react";
 import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
 import { connect } from "react-redux";
 import { handleLogin } from '../../actions/loginAction';
 
-class Login extends Component {
+class App extends Component {
 state = {
   name: '',
   password: ''
@@ -28,26 +28,7 @@ validate = () => {
 render(){
   return (
     <div>
-      <form autoComplete="off">
-        <TextField className="textfields"
-        id="outlined-name"
-        label="Name"        
-        value={this.state.name}
-        onChange={this.onChange}
-        margin="normal"
-        variant="outlined"/>    
-        <TextField className="textfields"
-        id="outlined-password-input"
-        label="Password"        
-        type="password"
-        onChange={this.onChangePassword}
-        autoComplete="current-password"
-        margin="normal"
-        variant="outlined"/>
-      </form>
-      <Button  variant="outlined" color="primary" onClick={this.onSubmit} disabled={!this.validate()}>
-      Log In
-      </Button>
+      
     </div>
       )
     }
@@ -65,4 +46,4 @@ const mapDispatchToProps = {
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(Login)
+)(App)*/

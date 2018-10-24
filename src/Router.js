@@ -10,6 +10,6 @@ export default (props) => (
     <Switch>
         <Route exact path='/' component={Home}/>
         <Route path='/login' component={Login}/>
-        <Route path='/registration' component={Registration}/>
+        <Route path='/register' component={Registration}/>
     </Switch>
 );

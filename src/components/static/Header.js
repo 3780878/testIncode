@@ -3,7 +3,6 @@ import { Link } from 'react-router-dom';
 import { connect } from "react-redux";
 import Paper from '@material-ui/core/Paper';
 import MenuList from '@material-ui/core/MenuList';
-import './header.css';
 
 const menu = require('../menu.json');
 
