@@ -3,6 +3,7 @@ import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
 import { connect } from "react-redux";
 import { handleLogin } from '../../actions/loginAction';
+import Grid from '@material-ui/core/Grid';
 
 class Login extends Component {
 state = {
@@ -27,25 +28,26 @@ validate = () => {
 }
 render(){
   return (
-    <div>
-      <form autoComplete="off">
-        <TextField className="textfields"
+    <div container="true">
+      <form autoComplete="off" className="dflexForm" spacing={2}>
+        <Grid><TextField className="textfields namelogin"
         id="outlined-name"
         label="Name"        
         value={this.state.name}
         onChange={this.onChange}
-        margin="normal"
-        variant="outlined"/>    
-        <TextField className="textfields"
+        xs={6}
+        variant="outlined"/> </Grid>   
+        <Grid><TextField className="textfields"
+        xs={6}
         id="outlined-password-input"
         label="Password"        
         type="password"
         onChange={this.onChangePassword}
         autoComplete="current-password"
         margin="normal"
-        variant="outlined"/>
+        variant="outlined"/></Grid>
       </form>
-      <Button  variant="outlined" color="primary" onClick={this.onSubmit} disabled={!this.validate()}>
+      <Button  size="large"  className="buttonSubmit" variant="outlined" color="primary" onClick={this.onSubmit} disabled={!this.validate()}>
       Log In
       </Button>
     </div>

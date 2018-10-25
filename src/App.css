@@ -1,7 +1,8 @@
 @import url('https://fonts.googleapis.com/css?family=Mali');
 /*Global styles*/
 body{
-font-family: 'Mali', cursive;
+	font-family: 'Mali', cursive;
+	display:flex;
 }
 /*End of global styles*/
 
@@ -12,14 +13,13 @@ font-family: 'Mali', cursive;
     margin:25px;
     padding: 0px 32px;
     border-radius: 8px;
-    width: -webkit-fit-content;
-    width: -moz-fit-content;
-    display: flex;
-    background-color: #e6f50f1c !important;
+    width: 463px;
+		background-color: #e6f50f1c !important;
+		justify-content: center;
 }
 .menu{
-    display: flex;
-    justify-content: center;
+		justify-content: space-around;
+		display: flex;
 }
 .nav-item{
     text-transform: uppercase;
@@ -35,17 +35,44 @@ font-family: 'Mali', cursive;
 /*end of header styles*/
 
 /*Login styles*/
+
+.dflexForm{
+	display:flex;
+	flex-wrap: wrap;
+}
+.namelogin {
+	margin: 16px 57px 16px 28px !important;
+}
 .textfields{
-    margin-left: 25px;
-    background-color: #edf50f26;
-    border: 2px dotted #384e08;
-    border-radius: 8px;
+	background-color: #edf50f26;
+	border: 2px dotted #384e08;
+	border-radius: 8px;
+	justify-content: space-between;
+	flex-wrap: wrap;
+	box-shadow: 0px 1px 5px 0px rgba(0, 0, 0, 0.2), 0px 2px 2px 0px rgba(0, 0, 0, 0.14), 0px 3px 1px -2px rgba(0, 0, 0, 0.12);
+}
+
+.buttonSubmit{
+	box-shadow: 0px 1px 5px 0px rgba(0, 0, 0, 0.2), 0px 2px 2px 0px rgba(0, 0, 0, 0.14), 0px 3px 1px -2px rgba(0, 0, 0, 0.12);
+	background-color: #edf50f26 !important;
+	margin: 20px 0 15px 27px !important;
 }
 
 /*end of login styles*/
 
 
+/*registration styles*/
+.MuiFormControl-marginNormal-33 {
+	margin: 15px 69px 17px 23px !important;
+}
+/*end of registration styles*/
 
 
 
+/*footer styles*/
+.foot{
+color: #491bb3c7;
+}
+
+/*end of footer styles*/
 

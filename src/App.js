@@ -3,6 +3,7 @@ import './App.css';
 import Router from "./Router";
 import Header from "./components/static/Header";
 import Footer from "./components/static/Footer";
+import { withRouter } from 'react-router-dom';
 
 import { getUser } from './actions/AppAction';
 import { connect } from 'react-redux';
@@ -33,7 +34,9 @@ const mapStateToProps = state => ({
     getUser
   };
   
-  export default connect(
+  export default  withRouter(
+    connect(
     mapStateToProps,
     mapDispatchToProps
-  )(App)
+  )(App),
+  );

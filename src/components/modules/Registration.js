@@ -27,9 +27,9 @@ validate = () => {
 }
 render(){
   return (
-    <div>
+    <div container="true">
       <form autoComplete="off">
-        <TextField className="textfields"
+        <TextField className="textfields namelogin"
         id="outlined-name"
         label="Name"        
         value={this.state.name}
@@ -45,7 +45,7 @@ render(){
         margin="normal"
         variant="outlined"/>
       </form>
-      <Button  variant="outlined" color="primary" onClick={this.onSubmit} disabled={!this.validate()}>
+      <Button size="large" className="buttonSubmit" variant="outlined" color="primary" onClick={this.onSubmit} disabled={!this.validate()}>
       Registration
       </Button>
     </div>

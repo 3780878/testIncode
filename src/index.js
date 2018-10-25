@@ -12,6 +12,8 @@ import { rootReducer } from './reducers';
 import logger from 'redux-logger';
 import thunk from 'redux-thunk';
 
+import * as serviceWorker from './serviceWorker';
+
 
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 const store = createStore(rootReducer, composeEnhancers(
@@ -27,3 +29,4 @@ ReactDOM.render(
         </BrowserRouter> 
     </Provider> ,document.getElementById("root")
 );
+serviceWorker.unregister();
