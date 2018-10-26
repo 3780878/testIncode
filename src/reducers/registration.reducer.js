@@ -1,9 +1,8 @@
 import {
-    LOGIN_REQUEST,
-    LOGIN_SUCCESS,
-    LOGIN_FAIL,
-    LOGOUT
-} from '../actions/loginAction';
+    REGISTER_REQUEST,
+    REGISTER_SUCCESS,
+    REGISTER_FAIL
+} from '../actions/auth.action';
   
   const initialState = {
     isValid:      true,
@@ -12,16 +11,15 @@ import {
     error:        ''
   }
   
-  export function loginReducer(state = initialState, action) {
+  export function registerReducer(state = initialState, action) {
     switch (action.type) {  
-      case LOGIN_REQUEST:
+      case REGISTER_REQUEST:
         return {
             ...state,            
             isSubmitting: true
         }
   
-      case LOGIN_SUCCESS:
-        localStorage.setItem('token', action['payload']);
+      case REGISTER_SUCCESS:
         return {
             ...state,
             isValid: true,            
@@ -29,7 +27,7 @@ import {
             hasChanges: false
         }
   
-      case LOGIN_FAIL:
+      case REGISTER_FAIL:
         return { 
           ...state,
           isValid: false, 
