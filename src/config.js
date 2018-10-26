@@ -1,5 +1,5 @@
 export default {
-    baseURL: 'http://localhost:8080/api'
+    baseURL: 'http://incode-blog-internship.herokuapp.com'
 };
 // const baseURL = 'http://localhost:8080/api';
 // export default baseURL;

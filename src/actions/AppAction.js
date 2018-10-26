@@ -8,9 +8,11 @@ export const getUser = () => {
       dispatch({
         type: GET_USER_REQUEST
       });
-
-      axios.get('/auth/me')
-        .then((response)=>{            
+      let i = axios.defaults.headers;
+      debugger;
+      return axios.get('/user')
+        .then((response)=>{
+            debugger;
             dispatch({
                 type: GET_USER_SUCCESS,
                 payload: response.data.user,

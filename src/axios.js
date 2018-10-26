@@ -1,10 +1,11 @@
 import axios from 'axios';
 import config from './config';
 
-const instance = axios.create({
+const axiosInstance = axios.create({
   baseURL: config.baseURL,
-  timeout: 1000,
-  headers: {'Authorization': `Bearer ${localStorage.getItem('token')}`}
+  headers: !localStorage.getItem('token')
+  ? {}
+  : {'Authorization': `Bearer ${localStorage.getItem('token')}`},
 });
 
-export default instance;
+export default axiosInstance;

@@ -13,8 +13,10 @@ export const handleRegistration = (authData) => {
             type: REGISTER_REQUEST
         });
 
-        axios.post('/auth/register', authData)
-            .then((response) => {                
+        axios.post('/auth', authData)
+            .then((response) => {       
+                localStorage.setItem('token', response.data.token);
+                axios.defaults.headers.common['Autorization'] = `Bearer ${localStorage.getItem('token')}`;            
                 dispatch({
                     type: REGISTER_SUCCESS,
                     payload: response.data.token
