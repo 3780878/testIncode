@@ -1,8 +1,7 @@
 import React, { Component } from "react";
-import TextField from '@material-ui/core/TextField';
-import Button from '@material-ui/core/Button';
 import { connect } from "react-redux";
 import { handleRegistration } from '../../actions/auth.action';
+import AuthForm from '../../components/AuthForm'
 
 class Registration extends Component {
 state = {
@@ -27,10 +26,14 @@ validate = () => {
 }
 render(){
   return (
-    <div container="true">
-
-    </div>
-      )
+    <AuthForm
+        login={this.state.login}
+        password={this.state.password}
+        isValid={this.props.isValid}
+        hasChanges={this.props.hasChanges}
+        onChange={this.onChange}
+        onSubmit={this.onSubmit}/> 
+    )
     }
   }
 const mapStateToProps = state => ({

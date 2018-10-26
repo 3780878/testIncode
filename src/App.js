@@ -1,8 +1,8 @@
 import React from 'react';
 import './App.css';
 import Router from "./Router";
-import Header from "./components/static/Header";
-import Footer from "./components/static/Footer";
+import Header from "./components/Header";
+import Footer from "./components/Footer";
 import { withRouter } from 'react-router-dom';
 
 import { getUser } from './actions/root.action';

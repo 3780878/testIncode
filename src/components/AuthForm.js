@@ -2,42 +2,37 @@ import React from "react";
 import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
 import Grid from '@material-ui/core/Grid';
+import { ValidatorForm, TextValidator } from 'react-material-ui-form-validator';
 
 const AuthForm = (props) => {
-
 	const onChange = (value, key) => {				
 		const result = {}
-		
 		result[key] = value;
 
-		if (key === 'login') {
-			result.password = props.password;
-		}
-
-		if (key === 'password') {
-			result.login = props.login;
-		}
-
-		props.onChange(result);
+	if (key === 'login') {
+		result.password = props.password;
 	}
-
+	if (key === 'password') {
+		result.login = props.login;
+	}
+	props.onChange(result);
+}
 	return (
-		<div>
-			<form
+		<form>
+			<ValidatorForm
 				autoComplete="off"
 				className="dflexForm"
 				spacing={2}
 				onSubmit={props.onSubmit}>
-				<Grid>
-					<TextField className="textfields namelogin"
+				<TextValidator className="textfields namelogin"
 						id="outlined-name"
+						validators={['minNumber:3', 'maxNumber:16']}
 						label="Name"
 						onChange={(e) => onChange(e.target.value, 'login')}
 						xs={6}
 						variant="outlined" /> 
-				</Grid>
-				<Grid>
-					<TextField className="textfields"
+
+					<TextValidator className="textfields"
 						xs={6}
 						id="outlined-password-input"
 						label="Password"
@@ -46,8 +41,6 @@ const AuthForm = (props) => {
 						autoComplete="current-password"
 						margin="normal"
 						variant="outlined" />
-				</Grid>
-
 				<Button
 					size="large"
 					className="buttonSubmit"
@@ -57,8 +50,8 @@ const AuthForm = (props) => {
 					type="submit">
 					GO
 				</Button>
-			</form>
-		</div>
+				</ValidatorForm>
+		</form>
 	)
 
 };

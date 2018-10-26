@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { handleLogin } from '../../actions/auth.action';
-import AuthForm from '../AuthForm';
+import AuthForm from '../../components/AuthForm';
 
 class Login extends Component {
 
