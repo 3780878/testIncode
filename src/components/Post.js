@@ -2,9 +2,9 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { withStyles } from '@material-ui/core/styles';
 import Card from '@material-ui/core/Card';
-import CardActions from '@material-ui/core/CardActions';
+// import CardActions from '@material-ui/core/CardActions';
 import CardContent from '@material-ui/core/CardContent';
-import Button from '@material-ui/core/Button';
+// import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
 
 const styles = {
@@ -32,30 +32,18 @@ function Post(props) {
     <Card className={classes.card}>
       <CardContent>
         <Typography className={classes.title} color="textSecondary" gutterBottom>
-          Title
+        {bull}Title {props.post.title}
         </Typography>
         <Typography variant="h5" component="h2">
-          be
-          {bull}
-          nev
-          {bull}o{bull}
-          lent
-        </Typography>
-        <Typography className={classes.pos} color="textSecondary">
-          adjective
-        </Typography>
-        <Typography component="p">
-          well meaning and kindly.
-          <br />
-          {'"a benevolent smile"'}
+          {props.post.body}
         </Typography>
         <Typography >
 
         </Typography>
       </CardContent>
-      <CardActions>
-        <Button size="small" role="submit" onSubmit={props.onSubmit}>Send</Button>
-      </CardActions>
+      {/* <CardActions>
+        <Button size="small" onSubmit={props.onSubmit}>Send</Button>
+      </CardActions> */}
     </Card>
   );
 }

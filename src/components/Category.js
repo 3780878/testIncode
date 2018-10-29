@@ -30,8 +30,8 @@ class Category extends React.Component {
   };
 
   render() {
-    const { category, classes } = this.props;
-    const { selectedIndex } = this.state;
+    const { classes } = this.props;
+    // const { selectedIndex } = this.state;
 	
     return (
       <List className={classes.root}>

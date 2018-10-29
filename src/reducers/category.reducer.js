@@ -5,32 +5,30 @@ import {
 } from '../actions/category.action';
   
   const initialState = {
-    category: [{
-        id: '',
-        title: '',
-        description: '',
-        selected: false
-    }],
+    categories: [],
+    loaded: false
   }
   
   export function categoryReducer (state=initialState, action){
     switch (action.type){
       case GET_CAT_REQUEST:
-      return {
-        ...state,
-        selected: false
-      }
+        return {
+          ...state,
+          loaded: false
+        }
       case GET_CAT_SUCCESS:
-      localStorage.setItem('title', action['payload']);
-      return {
-        ...state,
-        selected: true
-      }
+      
+        return {
+          ...state,
+          loaded: true,
+          categories: action.payload
+        }
       case GET_CAT_FAIL:
-      return{
-        ...state,
-        selected: false
-      }
+        return{
+          ...state,
+          loaded: false,
+          categories: []    
+        }
       default: return state
     }
   }

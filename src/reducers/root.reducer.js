@@ -1,7 +1,8 @@
 import {
     GET_USER_REQUEST,
     GET_USER_SUCCESS,
-    GET_USER_FAIL
+    GET_USER_FAIL,
+    LOGOUT
 } from '../actions/root.action';
 
 const initialState = {
@@ -38,6 +39,15 @@ export function rootReducer(state = initialState, action) {
                 loaded: true,
                 loading: false
             }
+
+        case LOGOUT: 
+            return {
+                ...state,
+                loggedIn:false,
+                loaded: false,
+                loading: false,
+                user: {}
+            };
         default: return state;
     }
 

@@ -5,7 +5,8 @@ import {
 } from '../actions/post.action';
   
   const initialState = {
-    isSubmitting: false
+    loaded: false,
+    posts: []
   }
   
   export function postReducer(state = initialState, action) {
@@ -13,18 +14,21 @@ import {
       case GET_POST_REQUEST:
         return {
             ...state,            
-            isSubmitting: true
+            loaded: false
         }
   
       case GET_POST_SUCCESS:
         return {
-            ...state
+            ...state,
+            loaded: true,
+            posts: action.payload
         }
   
       case GET_POST_FAIL:
         return { 
           ...state,
-          isSubmitting: false
+          loaded: false,
+          posts: []
       }
   
       default:

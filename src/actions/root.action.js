@@ -26,3 +26,14 @@ export const getUser = () => {
     }
 }
 
+export const LOGOUT  = '[Root] Logout'
+
+const logoutHandler = () => ({
+    type: LOGOUT,
+});
+
+export const logout = () => (dispatch) => {
+   localStorage.clear();
+   axios.defaults.headers.common = {};
+   dispatch(logoutHandler());    
+}

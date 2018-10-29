@@ -9,11 +9,12 @@ export const getCategory = () => {
       dispatch({
         type: GET_CAT_REQUEST
       });
-      return axios.get('/category')
-        .then((response)=>{
+      
+      axios.get('/category')
+        .then((response) => {
             dispatch({
                 type: GET_CAT_SUCCESS,
-                payload: response.data.category,
+                payload: response.data.categories,
              })
          })
         .catch(()=> {
