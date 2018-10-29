@@ -1,5 +1,0 @@
-[
-    {"name":"Home", "link":"/"},
-    {"name":"Login", "link":"/login"},
-    {"name":"Registration", "link":"/register"}
-]

@@ -1,8 +1,8 @@
 import axios from '../axios';
 
-export const GET_USER_REQUEST = 'GET_USER_REQUEST'
-export const GET_USER_SUCCESS = 'GET_USER_SUCCESS'
-export const GET_USER_FAIL = 'GET_USER_FAIL'
+export const GET_USER_REQUEST = '[Get User] Get User Request'
+export const GET_USER_SUCCESS = '[Get User] Get User Success'
+export const GET_USER_FAIL = '[Get User] Get User Fail'
 
 export const getUser = () => {
     return (dispatch) => {
@@ -25,3 +25,4 @@ export const getUser = () => {
         }) 
     }
 }
+

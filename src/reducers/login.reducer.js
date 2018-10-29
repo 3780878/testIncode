@@ -2,7 +2,6 @@ import {
     LOGIN_REQUEST,
     LOGIN_SUCCESS,
     LOGIN_FAIL,
-    LOGOUT
 } from '../actions/auth.action';
   
   const initialState = {

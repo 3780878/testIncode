@@ -8,22 +8,15 @@ state = {
   name: '',
   password: ''
 }
+
 onChange = event => {
-  this.setState({ name: event.target.value })
+  this.setState(event)
 }
-onChangePassword = event => {
-  this.setState({ password: event.target.value })
-}
+
 onSubmit = () => {
   this.props.handleRegistration({name:this.state.name, password:this.state.password})
 }
-validate = () => {
-  const { name, password } = this.state
-  if (name.trim() && password.trim() && name.length>2 && password.length>2) {
-    return true
-  }
-  return false
-}
+
 render(){
   return (
     <AuthForm

@@ -1,4 +1,4 @@
-/*import React from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import Chip from '@material-ui/core/Chip';
 import Paper from '@material-ui/core/Paper';

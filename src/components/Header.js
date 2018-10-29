@@ -11,30 +11,26 @@ const Header = props =>  {
       return element;
     }
     return (
-      <header> 
-      <Paper>
-      <div>
-      <MenuList>
-        <Link to='/login'><MenuItem>Login</MenuItem></Link>
-        <Link to='/register'><MenuItem>Register</MenuItem></Link>
-      </MenuList>
-      </div>
-      </Paper> 
+      <header className="paper">
+        <Paper>
+          <MenuList className="menu">
+            <Link to='/login'><MenuItem className="menuItem nav-item">Login</MenuItem></Link>
+            <Link to='/register'><MenuItem className="menuItem nav-item">Register</MenuItem></Link>
+          </MenuList>
+        </Paper> 
       </header>
     );
   }
   return (
-    <header> 
+    <header  className="paper"> 
       <Paper>
       {
       renderIfLoggedIn(
-      <div>
-        <MenuList>
-          <Link to='/'><MenuItem>Main</MenuItem></Link>
-          <Link to='/profile'><MenuItem>My profile</MenuItem></Link>
-          <Link to='/logout'><MenuItem>Logout</MenuItem></Link>
+        <MenuList className="menu">
+          <Link className="menuItem" to='/'><MenuItem className="nav-item">Main</MenuItem></Link>
+          <Link className="menuItem" to='/profile'><MenuItem className="nav-item">My profile</MenuItem></Link>
+          <Link className="menuItem" to='/logout'><MenuItem className="nav-item">Logout</MenuItem></Link>
         </MenuList>
-      </div>
         )
       } 
       </Paper>     
