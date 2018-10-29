@@ -3,12 +3,15 @@ import { connect } from "react-redux";
 import { getPost } from '../../actions/post.action';
 import { getCategory } from '../../actions/category.action';
 import Category from '../../components/Category';
+import Grid from '@material-ui/core/Grid';
+import Paper from '@material-ui/core/Paper';
 
 class Main extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      category:[]
+      category:[],
+      scroll: 'paper'
   }
 }
   componentDidMount() {
@@ -55,7 +58,15 @@ class Main extends Component {
   render(){
     return (
 			<div>
-        <Category/>
+         <Grid container spacing={24}>
+        <Grid item xs={3}>
+          <Paper scroll={this.state.scroll} ><Category/></Paper>
+        </Grid>
+        <Grid item xs={9}>
+          <Paper>Posts will be here</Paper>
+        </Grid>
+        </Grid>
+        
 			</div>
     )
   }

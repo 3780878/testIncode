@@ -19,7 +19,7 @@ export const getCategory = () => {
         .catch(()=> {
              dispatch({
                 type: GET_CAT_FAIL,
-                payload: 'Oooops...this category we have already',
+                payload: 'Oooops...',
              })
         }) 
     }

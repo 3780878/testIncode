@@ -3,6 +3,9 @@ import { connect } from 'react-redux';
 import { withStyles } from '@material-ui/core/styles';
 import List from '@material-ui/core/List';
 import { getCategory } from '../actions/category.action';
+import ListItem from '@material-ui/core/ListItem';
+import ListItemText from '@material-ui/core/ListItemText';
+import Divider from '@material-ui/core/Divider';
 
 const styles = theme => ({
   root: {
@@ -29,21 +32,26 @@ class Category extends React.Component {
   render() {
     const { category, classes } = this.props;
     const { selectedIndex } = this.state;
-		/*const mapwork = ()=> {
-			category.map(category => (
-					return(
-					key={category.id}
-					id={category.id}
-					title={category.title}
-					description={category.description}
-					selected={selectedIndex === category.id}
-					onClick={() => this.handleSelectedCategory(category.id, category.title)}
-			))}*/
+	
     return (
       <List className={classes.root}>
-         
-            />
-          ))}
+         Categories will be here
+				 <List component="nav">
+        <ListItem button>
+          <ListItemText primary="Category A" />
+        </ListItem>
+        <Divider />
+        <ListItem button divider>
+          <ListItemText primary="Category B" />
+        </ListItem>
+        <ListItem button>
+          <ListItemText primary="Category C" />
+        </ListItem>
+        <Divider light />
+        <ListItem button>
+          <ListItemText primary="Category D" />
+        </ListItem>
+      </List>
       </List>
     )
   }
@@ -65,7 +73,14 @@ export default withStyles(styles)(
   )(Category)
 );
 
-
+/*
+	key={category.id}
+	id={category.id}
+	title={category.title}
+	description={category.description}
+	selected={selectedIndex === category.id}
+	onClick={() => this.handleSelectedCategory(category.id, category.title)}
+*/
 
 
 /*import React from 'react';
