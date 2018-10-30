@@ -1,8 +1,13 @@
 @import url('https://fonts.googleapis.com/css?family=Mali');
+@import url('https://fonts.googleapis.com/css?family=Poppins');
 /*Global styles*/
 body{
 	font-family: 'Mali', cursive;
 	display:flex;
+}
+.bodyStyle{   
+	width: 1700px;
+	margin-left: 64px;
 }
 /*End of global styles*/
 
@@ -38,6 +43,7 @@ body{
 .dflexForm{
 	display:flex;
 	flex-wrap: wrap;
+	justify-content: center;
 }
 .namelogin {
 	margin: 16px 54px 16px 2px !important;
@@ -79,9 +85,32 @@ color: #491bb3c7;
 /*end of footer styles*/
 
 /*home page styles*/
-.inputTitleCat{
-	margin-top: 0 0 0 26px;
+.listCateg{
+	margin: 2px 15px !important;
+    border-radius: 7px;
 }
+.categoryStyle{
+	padding: 2px 14px !important;
+	text-transform: uppercase;
+}
+.labelCat span{
+	font-family: 'Mali', cursive !important;
+}
+.styleCatList{
 
-
+	background-color: #1d0ff51c  !important;
+}
+.postlist p{
+	font-family: 'Mali', cursive !important;
+}
+.postlist h5{
+	font-family: 'Poppins', sans-serif !important;
+	color: #384e08;
+}
+.postlist{
+	margin: 0px 0;
+}
+.lilistofPost {
+	margin: 4px 0px !important;
+}
 /*end of home page styles*/

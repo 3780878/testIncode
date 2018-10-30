@@ -14,8 +14,8 @@ export const getUser = () => {
         .then((response) => {
             dispatch({
                 type: GET_USER_SUCCESS,
-                payload: response.data.user,
-             })
+                payload: response.data,
+            });
          })
         .catch(()=> {
              dispatch({

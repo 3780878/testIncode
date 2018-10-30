@@ -15,7 +15,7 @@ const Header = props =>  {
       <header className="paper">
         <Paper>
           <MenuList className="menu">
-            <Link to='/login' /*onSubmit={props.login.onSubmit}*/><MenuItem className="menuItem nav-item">Login</MenuItem></Link>
+            <Link to='/login'><MenuItem className="menuItem nav-item">Login</MenuItem></Link>
             <Link to='/register'><MenuItem className="menuItem nav-item">Register</MenuItem></Link>
           </MenuList>
         </Paper> 
@@ -28,7 +28,7 @@ const Header = props =>  {
       {
       renderIfLoggedIn(
         <MenuList className="menu">
-          <Link className="menuItem" to='/'><MenuItem className="nav-item">Main</MenuItem></Link>
+          <Link className="menuItem" to='/main'><MenuItem className="nav-item">Main</MenuItem></Link>
           <Link className="menuItem" to='/profile'><MenuItem className="nav-item">My profile</MenuItem></Link>
           <Link className="menuItem" to='/login' onClick={props.onLogout}><MenuItem className="nav-item">Logout</MenuItem></Link>
         </MenuList>
@@ -38,5 +38,5 @@ const Header = props =>  {
     </header>
   )
 }
-  
+
 export default Header;

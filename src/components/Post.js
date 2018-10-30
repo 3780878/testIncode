@@ -30,24 +30,19 @@ function Post(props) {
 
   return (
     <Card className={classes.card}>
-      <CardContent>
-        <Typography className={classes.title} color="textSecondary" gutterBottom>
-        {bull}Title {props.post.title}
-        </Typography>
-        <Typography variant="h5" component="h2">
-          {props.post.body}
-        </Typography>
-        <Typography >
-
-        </Typography>
+      <CardContent className="postlist">
+        <Typography variant="h5" gutterBottom>Title: {props.post.title}</Typography>
+        <Typography> About: {props.post.body}</Typography>
+        <Typography>Posted by: {props.post.author_id}</Typography>
+        <Typography>Topic: {props.post.category_name}</Typography>
+        <Typography color="textSecondary">Category id: {props.post.category_id}</Typography>
+        <Typography color="textSecondary">Post id: {props.post.id}</Typography>
+        <Typography color="textSecondary">{bull}Data: {props.post.posted_at}</Typography>
+        <Typography color="textSecondary">{bull}Updated: {props.post.updated_at}</Typography>
       </CardContent>
-      {/* <CardActions>
-        <Button size="small" onSubmit={props.onSubmit}>Send</Button>
-      </CardActions> */}
     </Card>
   );
 }
-
 Post.propTypes = {
   classes: PropTypes.object.isRequired,
 };

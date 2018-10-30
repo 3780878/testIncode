@@ -2,13 +2,15 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import { getPosts } from '../../actions/post.action';
 import { getCategory } from '../../actions/category.action';
-// import Category from '../../components/Category';
+import Category from '../../components/Category';
 import Post from '../../components/Post';
 import Grid from '@material-ui/core/Grid';
 import Paper from '@material-ui/core/Paper';
 
 class Main extends Component {
-  
+  state = {
+    scroll: 'paper'
+  };
   componentDidMount() {
     this.props.getCategory();
     this.props.getPosts();
@@ -16,14 +18,18 @@ class Main extends Component {
 
   renderPosts() {
     return this.props.posts.map((post) => (
-      <Paper key={post.id}>
+      <Paper key={post.id} scroll={this.state.scroll} className="lilistofPost">
         <Post post={post}/>
       </Paper>
     ))
   }
 
   renderCategories() {
-    
+    return this.props.categories.map((category)=> (
+      <Paper key={category.id} className="styleCatList">
+        <Category category={category}/>
+      </Paper>
+    ))
   }
 
   render(){
@@ -31,13 +37,12 @@ class Main extends Component {
 			<div>
         <Grid container spacing={24}>
         <Grid item xs={3}>
-          {/* <Paper scroll={this.state.scroll} ><Category/></Paper> */}
+          {this.renderCategories()}
         </Grid>
         <Grid item xs={9}>
           { this.renderPosts() }          
         </Grid>
         </Grid>
-        
 			</div>
     )
   }
@@ -46,26 +51,12 @@ class Main extends Component {
 const mapStateToProps = state => ({
   categories: state.category.categories,
   posts: state.post.posts
-  //title: state.category.title
 });
-
-
-/*const mapDispatchToProps = (dispatch)=>{
-  return {
-    getCategory: () => {
-      dispatch(getCategory());
-    }
-  }
-}*/
 
 const mapDispatchToProps = {
   getPosts,
   getCategory
 };
-/*const mapDispatchToProps = dispatch => ({
-    action: getCategory(dispatch)
-})*/
-
 
 export default connect(
   mapStateToProps,

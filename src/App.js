@@ -12,21 +12,23 @@ class App extends React.Component {
 
   constructor(props) {
     super(props);
-
+    //this.isLoggedIn = this.loggedIn.bind(this)
     this.onLogout = this.onLogout.bind(this)
   }
 
   componentDidMount(){
     this.props.getUser();
   }
-
+  /*onSubmit() {
+    this.props.getUser();
+  }*/
   onLogout() {
     this.props.logout();
   }
 
   render() {
     return (        
-      <div className="app-container container">
+      <div className="bodyStyle">
           <Header isLoggedIn={this.props.loggedIn} onLogout={this.onLogout}/>
           <Router/>
           <Footer/>
