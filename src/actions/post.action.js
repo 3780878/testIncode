@@ -26,12 +26,11 @@ export const getPosts = () => {
 			}) 
 	}
 }
-
 export const GET_FIND_POST_REQUEST = '[Post] Get Find Post Request'
 export const GET_FIND_POST_SUCCESS = '[Post] Get Find Post Success'
 export const GET_FIND_POST_FAIL    = '[Post] Get Find Post Fail'
 
-export const getPostsOfUser = (id) => dispatch => {
+export const getPostsOfUser = (id) => {
 	return (dispatch) => {
 		
 		dispatch({

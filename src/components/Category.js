@@ -2,6 +2,9 @@ import React from 'react';
 import List from '@material-ui/core/List';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemText from '@material-ui/core/ListItemText';
+import Select from '@material-ui/core/Select';
+import MenuItem from '@material-ui/core/MenuItem';
+import OutlinedInput from '@material-ui/core/OutlinedInput';
 
 function Category(props) {
   return(
@@ -13,3 +16,6 @@ function Category(props) {
     )
   }
   export default (Category);
+
+
+ 

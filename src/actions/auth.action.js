@@ -1,6 +1,7 @@
 import axios from '../axios';
 
 import { getUser } from './root.action';
+import appHistory from '../history';
 
 export const REGISTER_REQUEST = '[Register] Get Register Request'
 export const REGISTER_SUCCESS = '[Register] Get Register Success'
@@ -8,18 +9,23 @@ export const REGISTER_FAIL    = '[Register] Get Register Fail'
 
 export const handleRegistration = (authData) => {       
 	return (dispatch) => {
+		console.log(1)
 		dispatch({
 			type: REGISTER_REQUEST
 		});
 		axios.post('/auth', authData)
 		.then((response) => {       
+			console.log(2)
 				localStorage.setItem('token', response.data.token);
 				axios.defaults.headers.common['Authorization'] = `Bearer ${localStorage.getItem('token')}`;
 			dispatch({
 					type: REGISTER_SUCCESS,
 					payload: response.data.token
 			})
+			
 			dispatch(getUser());
+			appHistory.push('/');
+			
 		}) 
 		.catch((error) => {
 			dispatch({
@@ -51,6 +57,7 @@ export const handleLogin = (authData) => {
 				});
 
 				getUser()(dispatch);
+				appHistory.push('/');
 			}) 
 			.catch((error) => {
 					dispatch({

@@ -1,8 +1,9 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { BrowserRouter } from 'react-router-dom';
+import { Router } from 'react-router-dom';
 import './index.css';
 import App from './App';
+import appHistory from './history';
 
 import { Provider } from 'react-redux';
 import { createStore, applyMiddleware, compose } from 'redux';
@@ -22,9 +23,9 @@ const store = createStore(appReducer, composeEnhancers(
 ReactDOM.render(
 
     <Provider store = {store}>
-        <BrowserRouter>
+        <Router history={appHistory}>
             <App />
-        </BrowserRouter> 
+        </Router> 
     </Provider> ,document.getElementById("root")
 );
 serviceWorker.unregister();

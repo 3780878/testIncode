@@ -18,7 +18,7 @@ class Main extends Component {
 
   renderPosts() {
     return this.props.posts.map((post) => (
-      <Paper key={post.id} scroll={this.state.scroll} className="lilistofPost">
+      <Paper key={post.id} className="lilistofPost">
         <Post post={post}/>
       </Paper>
     ))

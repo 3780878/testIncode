@@ -1,7 +1,7 @@
 import React from "react";
 import Button from '@material-ui/core/Button';
 import { ValidatorForm, TextValidator } from 'react-material-ui-form-validator';
-import { withRouter } from 'react-router-dom';
+
 const AuthForm = (props) => {
 	
 	const onChange = (value, key) => {						
@@ -16,9 +16,7 @@ const AuthForm = (props) => {
 		}
 		props.onChange(result);
 	}
-	const navigateHome = () => {
-		props.history.go('/main')
-	}
+
 
 	return (
 		<ValidatorForm
@@ -50,10 +48,10 @@ const AuthForm = (props) => {
 				variant="outlined"
 				color="primary"
 				type="submit"
-				onClick={navigateHome}>
+				>
 				GO
 			</Button>
 		</ValidatorForm>
 	)
 };
-export default withRouter(AuthForm);
+export default AuthForm;

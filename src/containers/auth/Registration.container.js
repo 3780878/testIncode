@@ -16,7 +16,10 @@ onChange = event => {
 onSubmit = () => {
   this.props.handleRegistration({name:this.state.name, password:this.state.password})
 }
-
+navigateHome = () => {
+  debugger;
+  this.props.history.go('/')
+}
 render(){
   return (
     <AuthForm
@@ -25,7 +28,8 @@ render(){
         isValid={this.props.isValid}
         hasChanges={this.props.hasChanges}
         onChange={this.onChange}
-        onSubmit={this.onSubmit}/> 
+        onSubmit={this.onSubmit}
+				onClick={this.navigateHome}/> 
     )
     }
   }
