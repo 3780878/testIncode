@@ -1,33 +1,58 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { getPostsOfUser } from '../../actions/post.action';
+import { getPosts, getPostsOfUser } from '../../actions/post.action';
+import Post from '../../components/Post';
 import Paper from '@material-ui/core/Paper';
 import ListItemText from '@material-ui/core/ListItemText';
 import List from '@material-ui/core/List';
 import Grid from '@material-ui/core/Grid';
+import NewPost from '../post/NewPost';
+//import Button from '@material-ui/core/Button';
 
 class Profile extends Component {
 	
 	componentDidMount() {
 		this.getPostsOfUser = this.props.user.id;
 	}
+  constructor(props) {
+    super(props);    
 
-  /*renderPosts() {
+    this.renderPosts = this.renderPosts.bind(this);
+  }
+  renderPosts() {
     return this.props.posts.map((post) => (
       <Paper key={post.id} className="lilistofPost">
         <Post post={post}/>
       </Paper>
     ))
-	}*/
+  }
+  /*renderdeletePost(){
+    return(
+      <Button>Delete Post</Button>
+    )
+  }*/
 	  render() {
 		
     return (
       <Paper>
-        <List>
-					<ListItemText> { this.props.user.login } </ListItemText>
+        <List className="topProfile">
+					<ListItemText className="profileLogin"> Welcome to your page, dear { this.props.user.login }! </ListItemText>
     		</List>
-				<Grid item xs={9}>
-          { this.props.user.posts }          
+        <Grid container spacing={16}>
+        <Grid item xs={3}>
+        <p className="newposttitle">Create your new post today:</p>
+        </Grid>
+        <Grid item xs={9}>
+        <p>All your great posts: </p>       
+        </Grid>
+        </Grid>
+        <Grid container spacing={16}>
+        <Grid item xs={3}>
+        <NewPost/>      
+        </Grid>
+        <Grid item xs={9}>
+        { this.renderPosts() }
+        </Grid>
         </Grid>
       </Paper>
     )
@@ -35,11 +60,13 @@ class Profile extends Component {
 }
 
 const mapStateToProps = state => ({
-	user: state.root.user
+  user: state.root.user,
+  posts: state.post.posts
 });
 
 const mapDispatchToProps = {
-	getPostsOfUser
+  getPosts,
+  getPostsOfUser
 };
 
 export default connect(

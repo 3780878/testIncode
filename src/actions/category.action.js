@@ -4,6 +4,7 @@ export const GET_CAT_REQUEST = '[Category] Get Categories Request';
 export const GET_CAT_SUCCESS = '[Category] Get Categories Success';
 export const GET_CAT_FAIL = '[Category] Get Categories Fail';
 
+
 export const getCategory = () => {
     return (dispatch) => {
       dispatch({

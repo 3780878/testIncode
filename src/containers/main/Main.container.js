@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { getPosts } from '../../actions/post.action';
+import { getPosts, getPostsByCategory } from '../../actions/post.action';
 import { getCategory } from '../../actions/category.action';
 import Category from '../../components/Category';
 import Post from '../../components/Post';
@@ -9,8 +9,17 @@ import Paper from '@material-ui/core/Paper';
 
 class Main extends Component {
   state = {
-    scroll: 'paper'
+    scroll: 'paper',
+    selectedCategory: -1
   };
+
+  constructor(props) {
+    super(props);    
+
+    this.renderCategories = this.renderCategories.bind(this);
+    this.renderPosts = this.renderPosts.bind(this);
+    this.handleSelectedCategory = this.handleSelectedCategory.bind(this);
+  }
   componentDidMount() {
     this.props.getCategory();
     this.props.getPosts();
@@ -27,9 +36,16 @@ class Main extends Component {
   renderCategories() {
     return this.props.categories.map((category)=> (
       <Paper key={category.id} className="styleCatList">
-        <Category category={category}/>
+        <Category 
+          category={category}          
+          onClick={this.handleSelectedCategory}
+        />
       </Paper>
     ))
+  }
+
+  handleSelectedCategory(category) {
+    this.props.getPostsByCategory(category);
   }
 
   render(){
@@ -55,13 +71,11 @@ const mapStateToProps = state => ({
 
 const mapDispatchToProps = {
   getPosts,
-  getCategory
+  getCategory,
+  getPostsByCategory
 };
 
 export default connect(
   mapStateToProps,
   mapDispatchToProps
 )(Main)
-
-
-

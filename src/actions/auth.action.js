@@ -9,13 +9,11 @@ export const REGISTER_FAIL    = '[Register] Get Register Fail'
 
 export const handleRegistration = (authData) => {       
 	return (dispatch) => {
-		console.log(1)
 		dispatch({
 			type: REGISTER_REQUEST
 		});
 		axios.post('/auth', authData)
-		.then((response) => {       
-			console.log(2)
+		.then((response) => {
 				localStorage.setItem('token', response.data.token);
 				axios.defaults.headers.common['Authorization'] = `Bearer ${localStorage.getItem('token')}`;
 			dispatch({
@@ -30,7 +28,7 @@ export const handleRegistration = (authData) => {
 		.catch((error) => {
 			dispatch({
 					type: REGISTER_FAIL,
-					payload: 'OOps..Something going wrong'
+					payload: 'OOps..Something went wrong'
 			})
 		}) 
 	}

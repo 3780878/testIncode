@@ -1,4 +1,4 @@
-import axios from '../axios';
+/*import axios from '../axios';
 
 export const ADD_POST_REQUEST = '[Post] Add Post Request'
 export const ADD_POST_SUCCESS = '[Post] Add Post Success'
@@ -26,4 +26,4 @@ export const addNewPost = () => {
             })         
 
     }
-}
+}*/

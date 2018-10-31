@@ -26,14 +26,14 @@ export function rootReducer(state = initialState, action) {
 				loaded: true,
 				loading: false,
 				user: action.payload
-				}
+			}
 		case GET_USER_FAIL:
 			return {
 				...state,
 				loggedIn: false,
 				loaded: true,
 				loading: false
-				}
+			}
 		case LOGOUT: 
 			return {
 				...state,

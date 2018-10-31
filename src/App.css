@@ -97,7 +97,7 @@ color: #491bb3c7;
 	font-family: 'Mali', cursive !important;
 }
 .styleCatList{
-
+	min-width: 150px;
 	background-color: #1d0ff51c  !important;
 }
 .postlist p{
@@ -114,3 +114,50 @@ color: #491bb3c7;
 	margin: 4px 0px !important;
 }
 /*end of home page styles*/
+
+/*Propfile styles*/
+.topProfile{
+	display:flex;
+}
+.profileLogin{
+	justify-content: center;
+}
+.profileLogin span{
+	font-size: 47px;
+	font-family: 'Mali', cursive !important;
+	text-transform: uppercase; 
+	color: #491bb3;
+	text-align: center;
+}
+.selectCat{
+	border-radius: 15px;
+	margin-left: 10px;
+}
+.titleSelect{
+    background-color: #edf50f26;
+    padding: 10px;
+    margin-left: 10px;
+	border-radius: 10px;
+	margin-top: 13px;
+}
+.newposttitle{
+	padding-left: 15px;
+}
+.titleNewPost{
+	height: 36px;
+	margin-top: 18px !important;
+	font-family: 'Mali', cursive !important;
+}
+.titleNewPost input{
+	font-family: 'Mali', cursive !important;
+}
+.descrOfNewPost input{
+	font-family: 'Mali', cursive !important;
+}
+.descrOfNewPost{
+	margin-top: 13px !important;
+}
+.buttonCreatePost{
+	margin-left: 100px !important;
+}
+/*End of profile styles*/

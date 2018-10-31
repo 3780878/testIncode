@@ -1,5 +1,6 @@
 import React from "react";
 import Button from '@material-ui/core/Button';
+import TextField from '@material-ui/core/TextField';
 
 const FormPost = (props) => {
 	const onChange = (value, key) => {						
@@ -13,14 +14,13 @@ const FormPost = (props) => {
 	}
 	props.onChange(result);
 }
-
 	return (
 		<form
 			autoComplete="off"
 			className="dflexForm"
 			spacing={2}
 			onSubmit={props.onSubmit}>
-			<TextField
+			<TextField className="titleNewPost"
 				id="outlined-full-width"
 				label="Title"
 				onChange={(e) => onChange(e.target.value, 'title')}
