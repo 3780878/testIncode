@@ -2,9 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { withStyles } from '@material-ui/core/styles';
 import Card from '@material-ui/core/Card';
-// import CardActions from '@material-ui/core/CardActions';
 import CardContent from '@material-ui/core/CardContent';
-// import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
 
 const styles = {
@@ -33,8 +31,9 @@ function Post(props) {
       <CardContent className="postlist">
         <Typography variant="h5" gutterBottom>Title: {props.post.title}</Typography>
         <Typography> About: {props.post.body}</Typography>
-        <Typography>Posted by: {props.post.author_id}</Typography>
-        <Typography>Topic: {props.post.category_name}</Typography>
+        <Typography>Posted by: {props.post.author_name}</Typography>
+        <Typography>Posted by (id author): {props.post.author_id}</Typography>
+        <Typography>Category: {props.post.category_name}</Typography>
         <Typography color="textSecondary">Category id: {props.post.category_id}</Typography>
         <Typography color="textSecondary">Post id: {props.post.id}</Typography>
         <Typography color="textSecondary">{bull}Data: {props.post.posted_at}</Typography>

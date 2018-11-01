@@ -79,9 +79,10 @@ body{
 
 /*footer styles*/
 .foot{
-color: #491bb3c7;
+	color: #491bb3c7;
+	height: 50px;
+    display: flex;
 }
-
 /*end of footer styles*/
 
 /*home page styles*/

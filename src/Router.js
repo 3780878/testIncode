@@ -10,7 +10,7 @@ export default (props) => (
       <Route exact path='/' component={Main}/>
       <Route path='/login' component={Login}/>
       <Route path='/register' component={Registration}/>
-      <Route path='/profile' component={Profile}/>
+      <Route path='/profile/:id' component={Profile}/>
       <Redirect to = '/'></Redirect>
     </Switch>
 );

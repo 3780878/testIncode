@@ -5,7 +5,7 @@ const Footer = () => {
 	return(
 		<footer>
 			<Paper className="paper foot" dir="rtl" xs={7}>
-				Web by noname
+				<p>Web by noname</p>
 			</Paper>    
 		</footer>
 	)

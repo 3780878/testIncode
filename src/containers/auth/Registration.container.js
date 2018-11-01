@@ -17,7 +17,6 @@ onSubmit = () => {
   this.props.handleRegistration({name:this.state.name, password:this.state.password})
 }
 navigateHome = () => {
-  debugger;
   this.props.history.go('/')
 }
 render(){

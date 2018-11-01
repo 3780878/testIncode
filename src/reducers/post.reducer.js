@@ -19,12 +19,15 @@ import {
   DELETE_POST_REQUEST,
   UPDATE_POST_REQUEST,
   UPDATE_POST_SUCCESS,
-  UPDATE_POST_FAIL
+  UPDATE_POST_FAIL,
+  SWITCH_POST_TO_UPDATE_MODE
 } from '../actions/post.action';
   
   const initialState = {
     loaded: false,
     posts: [],
+    postsToUpdate: [],
+    currentPost: {},
     selectedCategory: null,
     selectedAuthor: null,
     selectedPost: null,
@@ -49,7 +52,11 @@ import {
         return {
           ...state,
           loaded: true,
-          posts: action.payload
+          posts: action.payload,
+          postsToUpdate: [...action.payload.map(post => ({
+            id: post.id,
+            isUpdating: false
+          }))]
         }
       }
 
@@ -121,6 +128,17 @@ import {
           loading: true,
           error: null,
         };
+      
+        case SWITCH_POST_TO_UPDATE_MODE: 
+        return {
+          ...state,
+          postsToUpdate : [...state.postsToUpdate.map(post => {
+            if (post.id === action.payload) {
+              post.isUpdating = true
+            }
+            return post;
+          })]
+        }
       
       default:
         return state

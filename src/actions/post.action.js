@@ -27,37 +27,27 @@ export const DELETE_POST_FAIL = '[Delete Post] Post Delete Fail';
 export const UPDATE_POST_REQUEST = '[Update Post] Post Update Request';
 export const UPDATE_POST_SUCCESS = '[Update Post] Post Update Success';
 export const UPDATE_POST_FAIL = '[Update Post] Post Update Fail';
-/*
-const addNewPost = () => ({
-  type: CREATE_POST_REQUEST,
-});
 
-const addNewPostSuccess = () => ({
-  type: CREATE_POST_SUCCESS,
-});
+export const SWITCH_POST_TO_UPDATE_MODE = '[Update Post Mode] SWITCH_POST_TO_UPDATE_MODE';
 
-const addNewPostFail = error => ({
-  type: CREATE_POST_FAIL,
-  error,
-});
-*/
-export const addNewPostCreator = (postData) => {
-  debugger;
+export const addNewPostCreator = (postData, userId) => {
   return (dispatch) => {
     dispatch({
       type: CREATE_POST_REQUEST,
       payload: postData
     });
-    axios.post('/post', postData)
+    axios.post('/post', postData, {
+      headers: {
+        Authorization : `Bearer ${localStorage.getItem('token')}`
+      }
+    })
     .then((response)=> {
       localStorage.setItem('post', response.data.post);
       dispatch({
         type: CREATE_POST_SUCCESS,
         payload: response.data.post
-      })
-
-     // dispatch(addNewPostSuccess(response.data));
-     // dispatch(getPostsOfUser(authorId));
+      });
+      dispatch(getPostsOfUser(userId))
     })
     .catch((error) => {
       dispatch({
@@ -67,125 +57,50 @@ export const addNewPostCreator = (postData) => {
     })
   }
 }
-/*  title,
-  body,
-  authorId,
-  authorName,
-  categoryId,
-  categoryName,
-) => (dispatch) => {
-  const postData = {
-    title,
-    body,
-    author_id: authorId,
-    author_name: authorName,
-    category_id: categoryId,
-    category_name: categoryName,
-  };
-  dispatch(addNewPost());
-  axios
-    .post('/post', postData)
+export const deletePost = (id, userId) => {
+  return (dispatch) => {
+    dispatch({
+      type: DELETE_POST_REQUEST,
+      payload: {}
+    });
+  axios.delete(`/post/${id}`)
     .then((response) => {
-      dispatch(addNewPostSuccess(response.data));
-      dispatch(getPostsOfUser(authorId));
+      localStorage.removeItem('post')
+
+      dispatch({
+        type: DELETE_POST_SUCCESS,
+        payload: response.data.data,
+    });
+    dispatch(getPostsOfUser(userId))
     })
     .catch((err) => {
-      dispatch(addNewPostFail(err));
+      dispatch({
+        type: DELETE_POST_FAIL,
+        payload: 'Oooops.. I did it again'
+      })
+  })
+}  
+}
+export const updatePost = (postData, id) => {
+  return (dispatch) => {
+    dispatch({
+      type: UPDATE_POST_REQUEST
     });
-};
-/*export const addNewPostCreator = (
-  title,
-  body,
-  authorId,
-  authorName,
-  categoryId,
-  categoryName,
-) => (dispatch) => {
-  const postData = {
-    title,
-    body,
-    author_id: authorId,
-    author_name: authorName,
-    category_id: categoryId,
-    category_name: categoryName,
-  };
-  dispatch(addNewPost());
-  axios
-    .post('/post', postData)
-    .then((response) => {
-      dispatch(addNewPostSuccess(response.data));
-      dispatch(getPostsOfUser(authorId));
-    })
-    .catch((err) => {
-      dispatch(addNewPostFail(err));
-    });
-};
-*/
-const deletePostRequest = () => ({
-  type: DELETE_POST_REQUEST,
-});
-
-const deletePostSuccess = () => ({
-  type: DELETE_POST_SUCCESS,
-});
-
-const deletePostFail = error => ({
-  type: DELETE_POST_FAIL,
-  error,
-});
-
-export const deletePost = (postId, authorId) => (dispatch) => {
-  dispatch(deletePostRequest());
-  axios
-    .delete(`/post/${postId}`)
-    .then((response) => {
-      dispatch(deletePostSuccess(response.data.data));
-    })
-    .catch((err) => {
-      dispatch(deletePostFail(err));
-    });
-};
-
-const updatePostRequest = () => ({
-  type: UPDATE_POST_REQUEST,
-});
-
-const updatePostSuccess = () => ({
-  type: UPDATE_POST_SUCCESS,
-});
-
-const updatePostFail = error => ({
-  type: UPDATE_POST_FAIL,
-  error,
-});
-
-export const updatePosts = (
-  postId,
-  title,
-  body,
-  authorId,
-  authorName,
-  categoryId,
-  categoryName,
-) => (dispatch) => {
-  const updateData = {
-    title,
-    body,
-    author_id: authorId,
-    author_name: authorName,
-    category_id: categoryId,
-    category_name: categoryName,
-  };
-  dispatch(updatePostRequest());
-  axios
-    .put(`/post/${postId}`, updateData)
-    .then((response) => {
-      dispatch(updatePostSuccess(response.data.data));
-    })
-    .catch((err) => {
-      dispatch(updatePostFail(err));
-    });
-};
+    axios.put(`/post/${id}`, postData)
+      .then((response) => {
+        dispatch({
+          type: UPDATE_POST_SUCCESS,
+          payload: response.data.data
+        })
+      })
+      .catch((error) => {
+        dispatch({
+          type: UPDATE_POST_FAIL,
+          payload: 'Wrong way'
+        })
+      })
+  }
+}
 
 export const getPosts = () => {       
 	return (dispatch) => {
@@ -210,6 +125,13 @@ export const getPosts = () => {
 	}
 }
 
+export const switchPostToUpdateMode = (id) => dispatch => {
+  dispatch({
+    type : SWITCH_POST_TO_UPDATE_MODE,
+    payload : id
+  })
+}
+
 export const getPostsOfUser = (id) => {
 	return (dispatch) => {
 		
@@ -217,11 +139,12 @@ export const getPostsOfUser = (id) => {
 				type: GET_ALL_POSTS_BY_AUTHOR_ID_REQUEST
 		});
 				
-		axios.get(`/post/author/${id}`)
+    axios.get(`/post/author/${id}`)
+    
 			.then((response) => {
 				dispatch({
 					type: GET_ALL_POSTS_BY_AUTHOR_ID_SUCCESS,
-					payload: response.data.posts
+					payload: response.data.data
 			 })
 			}) 
 			.catch((error) => {

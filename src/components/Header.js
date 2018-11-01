@@ -28,9 +28,9 @@ const Header = props =>  {
       {
       renderIfLoggedIn(
         <MenuList className="menu">
-          <Link className="menuItem" to='/'><MenuItem className="nav-item">Main</MenuItem></Link>
-          <Link className="menuItem" to='/profile'><MenuItem className="nav-item">My profile</MenuItem></Link>
-          <Link className="menuItem" to='/login' onClick={props.onLogout}><MenuItem className="nav-item">Logout</MenuItem></Link>
+          <Link className="menuItem" to={`/`}><MenuItem className="nav-item">Main</MenuItem></Link>
+          <Link className="menuItem" to={`/profile/${props.userId}`}><MenuItem className="nav-item">My profile</MenuItem></Link>
+          <Link className="menuItem" to={`/login`} onClick={props.onLogout}><MenuItem className="nav-item">Logout</MenuItem></Link>
         </MenuList>
         )
       } 

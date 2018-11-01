@@ -26,6 +26,7 @@ class Main extends Component {
   }
 
   renderPosts() {
+    // debugger;
     return this.props.posts.map((post) => (
       <Paper key={post.id} className="lilistofPost">
         <Post post={post}/>

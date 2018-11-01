@@ -9,6 +9,7 @@ import MenuItem from '@material-ui/core/MenuItem';
 import Paper from '@material-ui/core/Paper';
 import TextField from '@material-ui/core/TextField';
 import { addNewPostCreator } from '../../actions/post.action';
+import { getPostsOfUser } from '../../actions/post.action';
 import Button from '@material-ui/core/Button';
 
 class  NewPost extends Component {
@@ -33,7 +34,6 @@ class  NewPost extends Component {
   
   onSubmit(e) {  
     e.preventDefault();
-    debugger;
     this.props.addNewPostCreator({
       title:this.state.title,
       body:this.state.body,
@@ -41,7 +41,7 @@ class  NewPost extends Component {
       category_name: this.state.selectedCategoryName,
       author_name: this.props.user.login,
       author_id: this.props.user.id
-    });
+    }, this.props.user.id);
   }
 
   renderCategories() {
@@ -136,7 +136,8 @@ const mapStateToProps = state => ({
 const mapDispatchToProps = {
   getCategory,
   addNewPost,
-  addNewPostCreator
+  addNewPostCreator,
+  getPostsOfUser
 };
 
 export default connect(

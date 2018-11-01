@@ -29,7 +29,7 @@ class App extends React.Component {
   render() {
     return (        
       <div className="bodyStyle">
-          <Header isLoggedIn={this.props.loggedIn} onLogout={this.onLogout}/>
+          <Header isLoggedIn={this.props.loggedIn} userId={this.props.userId} onLogout={this.onLogout}/>
           <Router/>
           <Footer/>
       </div>
@@ -38,6 +38,7 @@ class App extends React.Component {
 }
 
 const mapStateToProps = state => ({
+  userId: state.root.user.id,
   loggedIn: state.root.loggedIn,
   loaded: state.root.loaded
 })
