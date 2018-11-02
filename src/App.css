@@ -184,7 +184,6 @@ body{
 	font-family: 'Poppins', cursive !important;
     margin-left: 2px !important;
     margin-top: 7px !important;
-    width: 175px !important;
 }
 .lilistofPost .bodyUpdate{
     margin-left: 16px;
@@ -202,7 +201,7 @@ body{
 	min-height: 23px;
 }
 .butUpdate{
-	margin-left: 170px !important;
+	margin-left: 157px !important;
 }
 
 /*End of Update styles*/

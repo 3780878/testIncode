@@ -98,7 +98,18 @@ class Profile extends Component {
               //   ...post, title : 
               // })
             } size="large">Update</Button>
-           
+           <Button 
+                onClick={() => 
+               this.onSubmitUpdate({
+                ...post, 
+                title :  post.title,
+                body :   post.body,
+                updated_at: new Date().getTime()
+              })
+              // this.onSubmitUpdate({
+              //   ...post, title : 
+              // })
+            } size="large">Cancel</Button>
           </Paper>
         )
       

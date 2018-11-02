@@ -20,6 +20,9 @@ class Login extends Component {
     e.preventDefault();
     this.props.handleLogin({ login:this.state.login, password:this.state.password})
   }
+  navigateHome = () => {
+    this.props.history.go('/')
+  }
 
   render(){
     return (
@@ -29,7 +32,8 @@ class Login extends Component {
         isValid={this.props.isValid}
         hasChanges={this.props.hasChanges}
         onChange={this.onChange}
-        onSubmit={this.onSubmit}/> 
+        onSubmit={this.onSubmit}
+        onClick={this.navigateHome}/> 
     )
   }
 }

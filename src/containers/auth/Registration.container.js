@@ -5,16 +5,21 @@ import AuthForm from '../../components/AuthForm'
 
 class Registration extends Component {
 state = {
-  name: '',
+  login: '',
   password: ''
 }
-
+constructor(props) {
+  super(props);
+  this.onChange = this.onChange.bind(this);
+  this.onSubmit = this.onSubmit.bind(this);
+}
 onChange = event => {
   this.setState(event)
 }
 
-onSubmit = () => {
-  this.props.handleRegistration({name:this.state.name, password:this.state.password})
+onSubmit (e) {
+  e.preventDefault();
+  this.props.handleRegistration({login:this.state.login, password:this.state.password})
 }
 navigateHome = () => {
   this.props.history.go('/')

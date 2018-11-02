@@ -7,7 +7,7 @@ export const REGISTER_REQUEST = '[Register] Get Register Request'
 export const REGISTER_SUCCESS = '[Register] Get Register Success'
 export const REGISTER_FAIL    = '[Register] Get Register Fail'
 
-export const handleRegistration = (authData) => {       
+export const handleRegistration = (authData) => {      
 	return (dispatch) => {
 		dispatch({
 			type: REGISTER_REQUEST
@@ -21,7 +21,7 @@ export const handleRegistration = (authData) => {
 					payload: response.data.token
 			})
 			
-			dispatch(getUser());
+			dispatch(getUser())
 			appHistory.push('/');
 			
 		}) 
