@@ -63,7 +63,11 @@ export const deletePost = (id, userId) => {
       type: DELETE_POST_REQUEST,
       payload: {}
     });
-  axios.delete(`/post/${id}`)
+  axios.delete(`/post/${id}`, {
+    headers: {
+      Authorization : `Bearer ${localStorage.getItem('token')}`
+    }
+  })
     .then((response) => {
       localStorage.removeItem('post')
 
@@ -81,17 +85,22 @@ export const deletePost = (id, userId) => {
   })
 }  
 }
-export const updatePost = (postData, id) => {
+export const updatePost = (postData, userId) => {
   return (dispatch) => {
     dispatch({
       type: UPDATE_POST_REQUEST
     });
-    axios.put(`/post/${id}`, postData)
+    axios.put(`/post/${postData.id}`, postData, {
+      headers: {
+        Authorization : `Bearer ${localStorage.getItem('token')}`
+      }
+    })
       .then((response) => {
         dispatch({
           type: UPDATE_POST_SUCCESS,
           payload: response.data.data
         })
+        dispatch(getPostsOfUser(userId))
       })
       .catch((error) => {
         dispatch({

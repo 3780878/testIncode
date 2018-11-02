@@ -16,7 +16,6 @@ class  NewPost extends Component {
   state = {
     title: '',
     body: '',
-    value: 3,
     selectedCategory: ''
   }
   constructor(props) {

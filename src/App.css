@@ -110,9 +110,12 @@ body{
 }
 .postlist{
 	margin: 0px 0;
+    width: 444px;
 }
 .lilistofPost {
 	margin: 4px 0px !important;
+	display: flex;
+	flex-wrap: wrap;
 }
 /*end of home page styles*/
 
@@ -162,3 +165,44 @@ body{
 	margin-left: 100px !important;
 }
 /*End of profile styles*/
+
+/*Update styles*/
+
+.titleUpdate{
+	margin-left: 19px !important;
+}
+.columnUp{
+	display:flex;
+	flex-wrap: wrap;
+}
+.titleUpdate label{
+	font-family: 'Poppins', cursive;
+    font-size: 31px;
+	color: #384e08;
+}
+.titleUpdate input{
+	font-family: 'Poppins', cursive !important;
+    margin-left: 2px !important;
+    margin-top: 7px !important;
+    width: 175px !important;
+}
+.lilistofPost .bodyUpdate{
+    margin-left: 16px;
+}
+.bodyUpdate label{
+	font-family: 'Mali', cursive !important;
+	font-size: 31px;
+	color: #384e08;
+}
+.bodyUpdate textarea{
+	font-family: 'Mali', cursive !important;
+    margin-left: 2px !important;
+    margin-top: 10px !important;
+	width: 304px !important;
+	min-height: 23px;
+}
+.butUpdate{
+	margin-left: 170px !important;
+}
+
+/*End of Update styles*/
